@@ -6,7 +6,7 @@
     "types": [],
     "paths": {
       "@core/*" : ["src/app/core/*"],
-      "@material/*" : ["src/app/material/*"],
+      "@material/*" : ["src/app/primeng/*"],
       "@shared/*": ["src/app/shared/*"]
     }
   },
