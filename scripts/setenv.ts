@@ -4,6 +4,8 @@ const { argv } = require('yargs');
 require('dotenv').config();
 // read the command line arguments passed with yargs
 const environment = argv.environment;
+const isDev = environment === 'dev';
+const isQas = environment === 'qas';
 const isProduction = environment === 'prod';
 
 // if (!process.env.FIREBASE_API_KEY ||
@@ -19,10 +21,14 @@ const isProduction = environment === 'prod';
 //    process.exit(-1);
 //  }
 
-
-const targetPath = isProduction
-   ? `./src/environments/environment.prod.ts`
-   : `./src/environments/environment.ts`;
+let targetPath = '';
+if (isQas) {
+   targetPath = `./src/environments/environment.qas.ts`;
+} else if (isProduction) {
+   targetPath = `./src/environments/environment.prod.ts`;
+} else if (isDev) {
+   targetPath = `./src/environments/environment.ts`;
+}
 // we have access to our environment variables
 
 // in the process.env object thanks to dotenv

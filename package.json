@@ -4,8 +4,10 @@
   "scripts": {
     "ng": "ng",
     "config": "ts-node ./scripts/setenv.ts",
-    "start": "npm run config -- --environment=dev && ng serve",
-    "build": "npm run config -- --environment=prod && ng build",
+    "start": "npm run config --environment=dev && ng serve",
+    "build-dev": "npm run config --environment=dev && ng build",
+    "build-qas": "npm run config --environment=qas && ng build",
+    "build-prod": "npm run config --environment=prod && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
